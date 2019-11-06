@@ -1,0 +1,26 @@
+/*
+Containers' max-widths are powered by 
+your breakpoint variables. If you need more, 
+you may add new breakpoints in _breakpoints.scss
+*/
+
+// feel free to update this
+$container-padding: 30px;
+
+@each $breakpointName, $breakpointValue in $breakpoints {
+    .container {
+        @if $breakpointName !="" {
+            &-#{$breakpointName} {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: $breakpointValue;
+                padding-left: $container-padding;
+                padding-right: $container-padding;
+                @media (min-width: $breakpointValue) {
+                    padding-left: unset;
+                    padding-right: unset;
+                }
+            }
+        }
+    }
+}
