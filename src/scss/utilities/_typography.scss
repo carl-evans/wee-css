@@ -45,46 +45,76 @@ html { font-size: 62.5%; }
     }
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.capitalize {
-    text-transform: capitalize;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.lowercase {
-    text-transform: lowercase;
-}
-
-.strikethrough {
-    text-decoration: line-through;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
-.uppercase {
-    text-decoration: uppercase;
-}
-
-.center {
-    text-align: center;
-}
-
-.left {
-    text-align: left;
-}
-
-.right {
-    text-align: right;
-}
-
-.justify {
-    text-align: justify;
+@each $breakpointName, $breakpointValue in $breakpoints {
+    @if $breakpointName !="" {
+        @media(min-width: $breakpointValue) {
+            .#{$breakpointName}-bold {
+                font-weight: bold;
+            }
+            .#{$breakpointName}-capitalize {
+                text-transform: capitalize;
+            }
+            .#{$breakpointName}-italic {
+                font-style: italic;
+            }
+            .#{$breakpointName}-lowercase {
+                text-transform: lowercase;
+            }
+            .#{$breakpointName}-strikethrough {
+                text-decoration: line-through;
+            }
+            .#{$breakpointName}-underline {
+                text-decoration: underline;
+            }
+            .#{$breakpointName}-uppercase {
+                text-decoration: uppercase;
+            }
+            .#{$breakpointName}-center {
+                text-align: center;
+            }
+            .#{$breakpointName}-left {
+                text-align: left;
+            }
+            .#{$breakpointName}-right {
+                text-align: right;
+            }
+            .#{$breakpointName}-justify {
+                text-align: justify;
+            }
+        }
+    } @else {
+        .bold {
+            font-weight: bold;
+        }
+        .capitalize {
+            text-transform: capitalize;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .lowercase {
+            text-transform: lowercase;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .uppercase {
+            text-decoration: uppercase;
+        }
+        .center {
+            text-align: center;
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+        .justify {
+            text-align: justify;
+        }
+    }
 }
