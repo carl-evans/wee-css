@@ -16,30 +16,30 @@ html { font-size: 62.5%; }
         @media (min-width: $breakpointValue) {
             @for $i from 1 through 100 {
                 .#{$breakpointName}-fs-#{$i} {
-                    font-size: $i / 10 rem;
+                    font-size: ($i / 10) + rem;
                 }
                 .#{$breakpointName}-lh-#{$i} {
-                    line-height: $i / 10 rem;
+                    line-height: ($i / 10) + rem;
                 }
             }
             @for $i from 1 through 10 {
                 .#{$breakpointName}-ls-#{$i} {
-                    letter-spacing: $i / 10 rem;
+                    letter-spacing: ($i / 10) + rem;
                 }
             }
         }
     } @else {
         @for $i from 1 through 100 {
             .fs-#{$i} {
-                font-size: $i / 10 rem;
+                font-size: ($i / 10) + rem;
             }
             .lh-#{$i} {
-                line-height: $i / 10 rem;
+                line-height: ($i / 10) + rem;
             }
         }
         @for $i from 1 through 10 {
             .ls-#{$i} {
-                letter-spacing: $i / 10 rem;
+                letter-spacing: ($i / 10) + rem;
             }
         }
     }

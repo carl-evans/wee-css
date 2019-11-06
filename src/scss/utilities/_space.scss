@@ -52,8 +52,10 @@ $sides: (top, bottom, left, right);
           .#{$breakpointName}-p#{str-slice($side, 0, 1)}-#{$space} {
             padding-#{$side}: #{$space}px;
           }
-          .#{$breakpointName}-m#{str-slice($side, 0, 1)}-n#{$space} {
-            margin-#{$side}: -#{$space}px;
+          @if $space != "0" {
+            .#{$breakpointName}-m#{str-slice($side, 0, 1)}-n#{$space} {
+              margin-#{$side}: -#{$space}px;
+            }
           }
         }
         .#{$breakpointName}-mx-#{$space} {
@@ -83,8 +85,10 @@ $sides: (top, bottom, left, right);
         .p#{str-slice($side, 0, 1)}-#{$space} {
           padding-#{$side}: #{$space}px;
         }
-        .m#{str-slice($side, 0, 1)}-n#{$space} {
-          margin-#{$side}: -#{$space}px;
+        @if $space != "0" {
+          .m#{str-slice($side, 0, 1)}-n#{$space} {
+            margin-#{$side}: -#{$space}px;
+          }
         }
       }
       .mx-#{$space} {
