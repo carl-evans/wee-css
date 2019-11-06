@@ -1,3 +1,12 @@
+/*
+need more or less space utilities?
+Add your desired space value to $spaces
+and Wee CSS generates a range of utilities
+at your $breakpoints for that space value!
+You can always use PurgeCSS to remove
+unused utility classes! 🧹
+*/
+
 $spaces: (
   0,
   5,
