@@ -1,0 +1,48 @@
+/*
+please ensure you add new
+color variables to $colors so 
+Wee CSS can generate color
+and background-color utilities
+*/
+
+$white: #fff;
+$white-muted: #efefef;
+$grey: #c6c6c6;
+$grey-dark: #b0b0b0;
+$grey-light: #ddd;
+$black: #000;
+$black-muted: #1b1b1b;
+
+$colors: (
+    "white": $white,
+    "white-muted": $white-muted,
+    "grey": $grey,
+    "grey-dark": $grey-dark,
+    "grey-light": $grey-light,
+    "black": $black,
+    "black-muted": $black-muted,
+);
+
+@each $breakpointName, $breakpointValue in $breakpoints {
+    @if $breakpointName !="" {
+        @media (min-width: $breakpointValue) {
+            @each $colorName, $colorValue in $colors {
+                .#{$breakpointName}-color-#{$colorName} {
+                    color: #{$colorValue};
+                }
+                .#{$breakpointName}-bg-#{$colorName} {
+                    background-color: #{$colorValue};
+                }
+            }
+        }
+    } @else {
+        @each $colorName, $colorValue in $colors {
+            .color-#{$colorName} {
+                color: #{$colorValue};
+            }
+            .bg-#{$colorName} {
+                background-color: #{$colorValue};
+            }
+        }
+    }
+}
