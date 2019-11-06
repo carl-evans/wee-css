@@ -1,0 +1,47 @@
+/*
+We the rem unit to ensure
+font sizes and line heights are 
+accessible. Rem is calculated by 
+dividing the pixel value by 10. 
+e.g. 16px would be
+16 / 10 === 1.6
+html { font-size: 62.5%; } makes
+our math simple
+*/
+
+html { font-size: 62.5%; }
+
+@each $breakpointName, $breakpointValue in $breakpoints {
+    @if $breakpointName !="" {
+        @media (min-width: $breakpointValue) {
+            @for $i from 1 through 100 {
+                .#{$breakpointName}-fs-#{$i} {
+                    font-size: $i / 10 rem;
+                }
+                .#{$breakpointName}-lh-#{$i} {
+                    line-height: $i / 10 rem;
+                }
+            }
+            @for $i from 1 through 10 {
+                .#{$breakpointName}-ls-#{$i} {
+                    letter-spacing: $i / 10 rem;
+                }
+            }
+        }
+    } @else {
+        @for $i from 1 through 100 {
+            .fs-#{$i} {
+                font-size: $i / 10 rem;
+            }
+            .lh-#{$i} {
+                line-height: $i / 10 rem;
+            }
+        }
+        @for $i from 1 through 10 {
+            .ls-#{$i} {
+                letter-spacing: $i / 10 rem;
+            }
+        }
+    }
+}
+
