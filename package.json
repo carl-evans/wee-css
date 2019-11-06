@@ -1,0 +1,14 @@
+{
+  "name": "wee-css",
+  "version": "1.0.0",
+  "description": "A small collection of utility classes",
+  "main": "index.js",
+  "scripts": {
+    "production": "node-sass src/scss/app.scss dist/css/app.css -w --output-style compressed"
+  },
+  "author": "Carl Evans",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  }
+}

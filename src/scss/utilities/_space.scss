@@ -1,0 +1,99 @@
+$spaces: (
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100,
+  105,
+  110,
+  115,
+  120,
+  125,
+  130,
+  135,
+  140,
+  145,
+  150
+);
+
+$sides: (top, bottom, left, right);
+
+@each $breakpointName, $breakpointValue in $breakpoints {
+  @if $breakpointName != "" {
+    @media (min-width: $breakpointValue) {
+      @each $space in $spaces {
+        @each $side in $sides {
+          .#{$breakpointName}-m#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px;
+          }
+          .#{$breakpointName}-p#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px;
+          }
+          .#{$breakpointName}-m#{str-slice($side, 0, 1)}-n#{$space} {
+            margin-#{$side}: -#{$space}px;
+          }
+        }
+        .#{$breakpointName}-mx-#{$space} {
+          margin-left: #{$space}px;
+          margin-right: #{$space}px;
+        }
+        .#{$breakpointName}-my-#{$space} {
+          margin-bottom: #{$space}px;
+          margin-top: #{$space}px;
+        }
+        .#{$breakpointName}-px-#{$space} {
+          padding-left: #{$space}px;
+          padding-right: #{$space}px;
+        }
+        .#{$breakpointName}-py-#{$space} {
+          padding-bottom: #{$space}px;
+          padding-top: #{$space}px;
+        }
+      }
+    }
+  } @else {
+    @each $space in $spaces {
+      @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+          margin-#{$side}: #{$space}px;
+        }
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+          padding-#{$side}: #{$space}px;
+        }
+        .m#{str-slice($side, 0, 1)}-n#{$space} {
+          margin-#{$side}: -#{$space}px;
+        }
+      }
+      .mx-#{$space} {
+        margin-left: #{$space}px;
+        margin-right: #{$space}px;
+      }
+      .my-#{$space} {
+        margin-bottom: #{$space}px;
+        margin-top: #{$space}px;
+      }
+      .px-#{$space} {
+        padding-left: #{$space}px;
+        padding-right: #{$space}px;
+      }
+      .py-#{$space} {
+        padding-bottom: #{$space}px;
+        padding-top: #{$space}px;
+      }
+    }
+  }
+}
