@@ -1,0 +1,29 @@
+$displays: (
+    'none',
+    'inline',
+    'inline-block',
+    'block',
+    'table',
+    'table-cell',
+    'table-row',
+    'flex',
+    'inline-flex',
+);
+
+@each $breakpointName, $breakpointValue in $breakpoints {
+    @if $breakpointName !="" {
+        @media (min-width: $breakpointValue) {
+            @each $display in $displays {
+                .#{$breakpointName}-#{$display} {
+                    display: #{$display};
+                }
+            }
+        }
+    } @else {
+        @each $display in $displays {
+            .#{$display} {
+                display: #{$display};
+            }
+        }
+    }
+}
